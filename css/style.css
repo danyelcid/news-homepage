@@ -1,4 +1,61 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap');
+@import url(normalize.css);
+:root{
+    --clr-soft-orange: hsl(35, 77%, 62%);
+    --clr-soft-red: hsl(5, 85%, 63%);
+
+    --clr-off-white: hsl(36, 100%, 99%);
+    --clr-grayish-blue: hsl(233, 8%, 79%);
+    --clr-dark-grayish-blue: hsl(236, 13%, 42%);
+    --clr-very-dark-blue: hsl(240, 100%, 5%);
+    --clr-white: hsl(0, 0%, 100%);
+
+    --fw-regular: 400;
+    --fw-bold: 700;
+    --fw-extra-bold: 800;
+
+    --clr-title-text: var(--clr-very-dark-blue);
+    --clr-title-invert: var(--clr-off-white);
+    --clr-general-text: var(--clr-very-dark-blue);
+    --clr-main-bg: var(--clr-off-white);
+    --clr-aside-bg: var(--clr-very-dark-blue);
+    --general-accent:var(--clr-soft-red);
+    --clr-aside-accent:var(--clr-soft-orange);
+}
+
+
+*, 
+*::before, 
+*::after{
+    transition: all .25s ease-in-out;
+    margin: 0 ;
+    padding: 0 ;
+}
+body{
+  font-family: 'Inter', sans-serif;
+  color: var(--clr-general-text);
+  font-size: 15px;
+}
+
+/*Navigation bar*/
+
+
+/*Main content*/
+
+
+/*Aside content*/
+
+
+/*footer*/
+
+
+/*layout basics*/
+
+
+img{
+  max-width: 100%;
+}
 
 .container {
     padding-right: 15px;
