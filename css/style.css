@@ -53,6 +53,13 @@ body{
 a{
   text-decoration: none;
 }
+
+img{
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .btn{
   color: var(--clr-off-white);
   display: inline-block;
@@ -66,6 +73,11 @@ a{
 .btn:hover{
   color:var(--clr-off-white);
   background-color: var(--clr-very-dark-blue);
+}
+
+.title{
+  color: var(--clr-very-dark-blue);
+  font-weight: var(--fw-bold);
 }
 
 /*Navigation bar*/
@@ -143,20 +155,55 @@ nav{
 
 
 /*Main content*/
+main{
+  grid-area: main;
+}
 
+.featured .actions{
+  margin-top: 1rem;
+}
 
 /*Aside content*/
 
+/*relevant posts content*/
+.relevant-posts{
+  margin-top: 2rem;
+  grid-area: relevant;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr;
+  grid-auto-columns: ;
+  margin-bottom: 2rem;
+}
+
+.relevant-posts article{
+  display: grid;
+  grid-template: "img content content" 7.75rem/ 1fr 1fr 1fr;
+  gap: 1rem;
+}
+article > img{
+  grid-area: img;
+}
+article .content{
+  grid-area: content;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+article .counter{
+  display: block;
+  margin: 0;
+  line-height: 1;
+  font-size: 2rem;
+  color: var(--clr-dark-grayish-blue);
+  font-weight: var(--fw-bold);
+}
 
 /*footer*/
 
 
 
-
-
-img{
-  max-width: 100%;
-}
 
 
   @media (min-width: 768px) {
@@ -190,18 +237,18 @@ img{
                         "relevant relevant relevant" auto
                         /1fr 1fr 1fr;
       }
-      main{
-        grid-area: main;
-      }
+
       .featured{
         display: grid;
         gap: 2.5rem;
         grid-template: "img img" 50%
                         "title text" 50% /1fr 1fr;
       }
-      .featured img{
+
+      .featured picture{
         grid-area: img;
       }
+
       .featured h1{
         font-size: 3rem;
         line-height: 1;
@@ -223,13 +270,14 @@ img{
         justify-content: space-between;
       }
 
+      /*relevant posts content*/
       .relevant-posts{
         margin-top: 2rem;
         grid-area: relevant;
         display: grid;
         gap: 2rem;
         grid-template-columns: repeat(3, 1fr);
-
+        margin-bottom: 2rem;
       }
 
 
