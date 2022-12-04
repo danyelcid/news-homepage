@@ -17,7 +17,7 @@
 
     --clr-title-text: var(--clr-very-dark-blue);
     --clr-title-invert: var(--clr-off-white);
-    --clr-general-text: var(--clr-very-dark-blue);
+    --clr-general-text: var(--clr-dark-grayish-blue);
     --clr-main-bg: var(--clr-off-white);
     --clr-aside-bg: var(--clr-very-dark-blue);
     --general-accent:var(--clr-soft-red);
@@ -33,13 +33,14 @@
     padding: 0 ;
     box-sizing: border-box;
 }
+
 /*layout basics*/
 
 body{
   font-family: 'Inter', sans-serif; 
   color: var(--clr-general-text);
   font-size: 15px;
-  font-weight: var(--fw-regular);
+  font-weight: var(--fw-bold);
   line-height: 1.5;
   background-color: var(--clr-main-bg)
 }
@@ -80,6 +81,17 @@ img{
   font-weight: var(--fw-bold);
 }
 
+.gridlayout{
+  width: 100%;
+  margin-top: 6rem;
+  display: grid;
+  gap: 2rem;
+  grid-template:  "main main main" auto
+                  "aside aside aside" auto
+                  "relevant relevant relevant" auto
+                  /1fr 1fr 1fr;
+}
+
 /*Navigation bar*/
 .navbar-top{
   position: fixed;
@@ -114,9 +126,7 @@ nav{
 }
 .navbar-toggle.active{
   background: url('/assets/images/icon-menu-close.svg') no-repeat;
-
 }
-
 .navbar-menu{
   visibility: hidden;
   opacity: 0;
@@ -136,8 +146,17 @@ nav{
   flex-direction: column;
   gap: 2rem;
   background-color: var(--clr-main-bg);
-  box-shadow: 0 -5px 5px rgba(0, 0, 0, .15);
   z-index: 100;
+  }
+  .navbar-menu.active::before{
+    content: '';
+    position: absolute;
+    inset: 0;
+    left: calc( calc(100vw - 100%) * -1);
+    width: calc(100vw - 100%);
+    background-color: rgba(0, 0, 0, 0.347);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.418);
+    z-index: -1;
   }
 
 .navbar-item{
@@ -146,10 +165,12 @@ nav{
 .navbar-link{
   font-size: 1rem;
   color: var(--clr-general-text);
+  border-bottom: 2px solid transparent;
 }
 .navbar-link:hover{
   color: var(--general-accent);
-  text-decoration: underline;
+  border-bottom: 2px var(--clr-soft-red) solid;
+
 }
 
 
@@ -164,6 +185,30 @@ main{
 }
 
 /*Aside content*/
+aside{
+  grid-area: aside;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  justify-content: space-between;
+  background-color: var(--clr-very-dark-blue);
+  padding: 1.5rem;
+}
+.aside-title{
+  font-size: 1.75rem;
+  color: var(--clr-aside-accent);
+}
+
+aside a{
+  display: inline-block;
+  color: var(--clr-off-white);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+aside a:hover{
+  color: var(--clr-aside-accent);
+}
 
 /*relevant posts content*/
 .relevant-posts{
@@ -172,7 +217,6 @@ main{
   display: grid;
   gap: 2rem;
   grid-template-columns: 1fr;
-  grid-auto-columns: ;
   margin-bottom: 2rem;
 }
 
@@ -196,7 +240,7 @@ article .counter{
   margin: 0;
   line-height: 1;
   font-size: 2rem;
-  color: var(--clr-dark-grayish-blue);
+  color: var(--clr-grayish-blue);
   font-weight: var(--fw-bold);
 }
 
@@ -214,12 +258,13 @@ article .counter{
     .navbar-toggle{
       display: none;
     }
-
+    .navbar-menu.active,
     .navbar-menu {
       position: relative;
       top: 0;
       right: 0;
       display: flex;
+      flex-direction: row;
       gap: 1.25rem;
       visibility: visible;
       opacity: 1;
@@ -228,10 +273,6 @@ article .counter{
       }
 
       .gridlayout{
-        width: 100%;
-        margin-top: 6rem;
-        display: grid;
-        gap: 2rem;
         grid-template:  "main main aside" auto
                         "main main aside" auto
                         "relevant relevant relevant" auto
@@ -265,19 +306,11 @@ article .counter{
 
       aside{
         grid-area: aside;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
       }
 
       /*relevant posts content*/
       .relevant-posts{
-        margin-top: 2rem;
-        grid-area: relevant;
-        display: grid;
-        gap: 2rem;
         grid-template-columns: repeat(3, 1fr);
-        margin-bottom: 2rem;
       }
 
 
