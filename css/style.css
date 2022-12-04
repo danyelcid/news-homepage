@@ -243,6 +243,9 @@ article .counter{
   color: var(--clr-grayish-blue);
   font-weight: var(--fw-bold);
 }
+article a:hover{
+  color: var(--clr-soft-red);
+}
 
 /*footer*/
 
@@ -293,6 +296,7 @@ article .counter{
       .featured h1{
         font-size: 3rem;
         line-height: 1;
+        letter-spacing: 0.05rem;
         font-weight: var(--fw-extra-bold);
         grid-area: title;
       }
@@ -323,7 +327,7 @@ article .counter{
   }
   @media (min-width: 1200px) {
     .container {
-      width: 1170px;
+      width: 1110px;
     }
 
   }
