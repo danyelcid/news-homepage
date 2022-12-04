@@ -154,8 +154,8 @@ nav{
     inset: 0;
     left: calc( calc(100vw - 100%) * -1);
     width: calc(100vw - 100%);
-    background-color: rgba(0, 0, 0, 0.347);
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.418);
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     z-index: -1;
   }
 
